@@ -23548,7 +23548,8 @@
 
 	var React = __webpack_require__(1);
 	var Main = __webpack_require__(197);
-	var Home = __webpack_require__(198);
+	var Home = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/Home\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var Profile = __webpack_require__(199);
 	var Router = __webpack_require__(157);
 	var DefaultRoute = Router.DefaultRoute;
 	var Route = Router.Route;
@@ -23556,6 +23557,7 @@
 	module.exports = React.createElement(
 	    Route,
 	    { name: 'app', path: '/', handler: Main },
+	    React.createElement(Route, { name: 'profile', path: 'profile/:username', handler: Profile }),
 	    React.createElement(DefaultRoute, { handler: Home })
 	);
 
@@ -23566,40 +23568,80 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var RouteHandler = __webpack_require__(157).RouteHandler;
 
 	var Main = React.createClass({
-	  displayName: 'Main',
+	    displayName: 'Main',
 
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      null,
-	      'Hello World'
-	    );
-	  }
+	    render: function render() {
+	        return React.createElement(
+	            'div',
+	            { className: 'main-container' },
+	            React.createElement(
+	                'nav',
+	                { className: 'navbar navbar-default', role: 'navigation' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'col-sm-7 col-sm-offset-2', style: { marginTop: 15 } },
+	                    'MENU'
+	                )
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'container' },
+	                React.createElement(RouteHandler, null)
+	            )
+	        );
+	    }
 	});
 
 	module.exports = Main;
 
 /***/ },
-/* 198 */
+/* 198 */,
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* @flow */
+	'use strict';
 
 	var React = __webpack_require__(1);
+	var Router = __webpack_require__(157);
 
-	var Home = React.createClass({
-	    displayName: "Home",
+	var Profile = React.createClass({
+	    displayName: 'Profile',
 
+	    getInitialState: function getInitialState() {
+	        return {
+	            notes: [],
+	            bio: {},
+	            repos: []
+	        };
+	    },
 	    render: function render() {
 	        return React.createElement(
-	            "h2",
-	            { className: "text-center" },
-	            "Search by Github Username above"
+	            'div',
+	            { className: 'row' },
+	            React.createElement(
+	                'div',
+	                { className: 'col-md-4' },
+	                'User Profile Component'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'col-md-4' },
+	                'Repos Component'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'col-md-4' },
+	                'Notes Component'
+	            )
 	        );
 	    }
 	});
+
+	module.exports = Profile;
 
 /***/ }
 /******/ ]);
