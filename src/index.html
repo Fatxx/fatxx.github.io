@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="PT-pt" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>fatxx-github-io</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1, minimal-ui">
+
+        <link rel="canonical" href=""/>
+        <!-- inject-vendor:css -->
+        <!--<link rel="stylesheet" href="vendor/ionic/release/css/ionic.min.css">-->
+        <!-- endinject -->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="assets/css/main.css">
+        <!-- endinject -->
+        
+    </head>
+    <body>
+    
+    <ui-view></ui-view>
+
+    <!-- inject-vendor:js -->
+    <script src="vendor/lodash/lodash.js"></script>
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular-animate/angular-animate.js"></script>
+    <script src="vendor/angular-sanitize/angular-sanitize.js"></script>
+    <script src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:js -->
+    <!-- Bootstrapping -->
+    <script src="app/app.module.js"></script>
+    <!-- core module -->
+    <script src="app/core/core.module.js"></script>
+    <script src="app/core/config.js"></script>
+    <script src="app/core/dataService.js"></script>
+    <!-- layout -->
+    <script src="app/layout/layout.module.js"></script>
+    <script src="app/layout/shell.route.js"></script>
+    <script src="app/layout/shell.controller.js"></script>
+    <!-- components -->
+    <script src="app/widgets/widgets.module.js"></script>
+    <!-- feature -->
+    <script src="app/feature/feature.module.js"></script>
+    <script src="app/feature/feature.route.js"></script>
+    <script src="app/feature/feature.controller.js"></script>
+    <!-- endinject -->
+
+    <!-- inject-templates:js -->
+    <!-- endinject -->
+    </body>
+</html>
