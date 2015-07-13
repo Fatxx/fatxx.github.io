@@ -1,0 +1,30 @@
+{
+  "name": "fatxx.github.io",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Fatxx/fatxx.github.io",
+  "authors": [
+    "Fateicha <alfatia10@gmail.com>"
+  ],
+  "description": "Portfolio with React",
+  "main": "public/index.html",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "react",
+    "portfolio"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "material-design-lite": "~1.0.0"
+  }
+}

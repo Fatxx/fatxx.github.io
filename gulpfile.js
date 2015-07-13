@@ -26,10 +26,25 @@ var b = watchify(browserify(opts));
 b.transform(babelify);
 
 gulp.task('js', bundle);
+gulp.task('sass', sass);
 b.on('log', gulpUtil.log);
 
 /**
- * Generate bundle.js with sourcemaps
+ * Compile sass files to css
+ * @returns {*}
+ */
+function sass() {
+    return gulp
+        .src('./app/styles/main.scss')
+        .pipe(sourcemaps.init())
+        .pipe(gulpSass().on('error', gulpSass.logError))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./public'))
+        .pipe(browserSync.stream());
+}
+
+/**
+ * Generate bundle.js from required javascript files
  * @returns {*}
  */
 function bundle() {
@@ -46,14 +61,14 @@ function bundle() {
 /**
  *  Default task, run browsersync and watch for files changes
  */
-gulp.task('default', ['js'], function(){
+gulp.task('default', ['js', 'sass'], function() {
     browserSync.init({
         server: {
             baseDir: "./public"
         }
     });
 
-    gulp.watch('app/**/*.js', ['js']);
-    gulp.watch('app/styles/**.*.scss', ['sass']);
-    gulp.watch('public/index.html').on('change', browserSync.reload);
+    gulp.watch('./app/**/*.js', ['js']);
+    gulp.watch('./app/styles/**/*.scss', ['sass']);
+    gulp.watch('./public/index.html').on('change', browserSync.reload);
 });
