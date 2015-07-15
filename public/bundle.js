@@ -1,13 +1,25 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
-var Router = require('react-router');
-var routes = require('./config/routes');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-Router.run(routes, function (Root) {
-    React.render(React.createElement(Root, null), document.getElementById('app'));
-});
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+var _configRoutes = require('./config/routes');
+
+var _configRoutes2 = _interopRequireDefault(_configRoutes);
+
+var renderApp = function renderApp(Root) {
+    _react2['default'].render(_react2['default'].createElement(Root, null), document.getElementById('app'));
+};
+
+_reactRouter2['default'].run(_configRoutes2['default'], renderApp);
 
 },{"./config/routes":6,"react":201,"react-router":32}],2:[function(require,module,exports){
 /**
@@ -15,6 +27,70 @@ Router.run(routes, function (Root) {
  */
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _componentsProfile = require('../components/Profile');
+
+var _componentsProfile2 = _interopRequireDefault(_componentsProfile);
+
+var _reactRouter = require('react-router');
+
+var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+var Home = _react2['default'].createClass({
+    displayName: 'Home',
+
+    getInitialState: function getInitialState() {
+        return {
+            places: [],
+            bio: {},
+            repos: []
+        };
+    },
+
+    render: function render() {
+        return _react2['default'].createElement(
+            'div',
+            { className: 'mdl-grid' },
+            _react2['default'].createElement(
+                'div',
+                { className: 'mdl-cell mdl-cell--4-col' },
+                _react2['default'].createElement(_componentsProfile2['default'], null)
+            ),
+            _react2['default'].createElement(
+                'div',
+                { className: 'mdl-cell mdl-cell--4-col' },
+                'Repos Component'
+            ),
+            _react2['default'].createElement(
+                'div',
+                { className: 'mdl-cell mdl-cell--4-col' },
+                'Notes Component'
+            )
+        );
+    }
+});
+
+exports['default'] = Home;
+module.exports = exports['default'];
+
+},{"../components/Profile":4,"react":201,"react-router":32}],3:[function(require,module,exports){
+/**
+ * Created by André Fatia on 13-07-2015.
+ */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
 var React = require('react');
 var RouteHandler = require('react-router').RouteHandler;
 
@@ -22,130 +98,87 @@ var Main = React.createClass({
     displayName: 'Main',
 
     render: function render() {
-        'use strict';
-        return (
-            /* jshint ignore:start */
+        return React.createElement(
+            'div',
+            { className: 'mdl-layout mdl-js-layout' },
             React.createElement(
-                'div',
-                { className: 'mdl-layout mdl-js-layout' },
-                React.createElement(
-                    'main',
-                    { className: 'mdl-layout__content' },
-                    React.createElement(
-                        'div',
-                        { className: 'mdl-grid' },
-                        React.createElement('div', { className: 'mdl-cell mdl-cell--4-col' }),
-                        React.createElement(
-                            'div',
-                            { className: 'mdl-cell mdl-cell--4-col' },
-                            React.createElement(RouteHandler, null)
-                        ),
-                        React.createElement('div', { className: 'mdl-cell mdl-cell--4-col' })
-                    )
-                )
+                'main',
+                { className: 'mdl-layout__content' },
+                React.createElement(RouteHandler, null)
             )
         );
     }
 });
 
-module.exports = Main;
+exports['default'] = Main;
+module.exports = exports['default'];
 
-/* jshint ignore:end */
-
-},{"react":201,"react-router":32}],3:[function(require,module,exports){
+},{"react":201,"react-router":32}],4:[function(require,module,exports){
 /**
  * Created by André Fatia on 13-07-2015.
  */
 'use strict';
 
-var React = require('react');
-var Profile = require('../components/Profile');
-var Router = require('react-router');
-
-var Portfolio = React.createClass({
-    displayName: 'Portfolio',
-
-    getInitialState: function getInitialState() {
-        'use strict';
-        return {
-            places: [],
-            bio: {},
-            repos: []
-        };
-    },
-    render: function render() {
-        'use strict';
-        return (
-            /* jshint ignore:start */
-            React.createElement(
-                'div',
-                { className: 'row' },
-                React.createElement(
-                    'div',
-                    { className: 'col-md-4' },
-                    React.createElement(Profile, null)
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'col-md-4' },
-                    'Repos Component'
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'col-md-4' },
-                    'Notes Component'
-                )
-            )
-        );
-    }
+Object.defineProperty(exports, '__esModule', {
+    value: true
 });
 
-module.exports = Portfolio;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-/* jshint ignore:end */
+var _react = require('react');
 
-},{"../components/Profile":4,"react":201,"react-router":32}],4:[function(require,module,exports){
-/**
- * Created by André Fatia on 13-07-2015.
- */
-'use strict';
+var _react2 = _interopRequireDefault(_react);
 
-var React = require('react');
-
-var Profile = React.createClass({
+var Profile = _react2['default'].createClass({
     displayName: 'Profile',
 
+    getInitialState: function getInitialState() {
+        return {
+            title: '',
+            body: ''
+        };
+    },
+
+    componentDidMount: function componentDidMount() {},
+
     render: function render() {
-        'use strict';
-        return (
-            /* jshint ignore:start */
-            React.createElement(
+        return _react2['default'].createElement(
+            'div',
+            { className: 'mdl-card mdl-shadow--4dp' },
+            _react2['default'].createElement(
                 'div',
-                { className: 'mdl-card mdl-shadow--4dp' },
-                React.createElement(
-                    'div',
-                    { className: 'mdl-card__media' },
-                    React.createElement('img', { src: 'skytower.jpg', style: { width: 173, height: 157 },
-                        border: '0', alt: '', style: { padding: '10px' } })
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'mdl-card__supporting-text' },
-                    'Auckland Sky Tower, taken March 24th, 2014'
-                ),
-                React.createElement(
-                    'div',
-                    { className: 'mdl-card__supporting-text' },
-                    'The Sky Tower is an observation and telecommunications tower located in Auckland, New Zealand. It is 328 metres (1,076 ft) tall, making it the tallest man-made structure in the Southern Hemisphere.'
+                { className: 'mdl-card__media' },
+                _react2['default'].createElement(
+                    'h3',
+                    null,
+                    this.state.title
                 )
+            ),
+            _react2['default'].createElement(
+                'div',
+                { className: 'mdl-card__supporting-text' },
+                'Auckland Sky Tower, taken March 24th, 2014'
+            ),
+            _react2['default'].createElement(
+                'div',
+                { className: 'mdl-card__supporting-text' },
+                this.state.body
             )
         );
     }
 });
 
-module.exports = Profile;
+exports['default'] = Profile;
+module.exports = exports['default'];
 
-/* jshint ignore:end */
+//$.get('http://jsonplaceholder.typicode.com/posts/1', (result) => {
+//    if (this.isMounted()) {
+//        this.setState({
+//            title: data.title,
+//            body: data.body
+//        });
+//    }
+//})
 
 },{"react":201}],5:[function(require,module,exports){
 /**
@@ -153,58 +186,95 @@ module.exports = Profile;
  */
 'use strict';
 
-var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
 
-var Welcome = React.createClass({
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+var Link = _reactRouter2['default'].Link;
+
+var Welcome = _react2['default'].createClass({
     displayName: 'Welcome',
 
     render: function render() {
-        'use strict';
-        return (
-            /* jshint ignore:start */
-            React.createElement(
+        return _react2['default'].createElement(
+            'div',
+            { className: 'mdl-grid' },
+            _react2['default'].createElement('div', { className: 'mdl-cell mdl-cell--4-col' }),
+            _react2['default'].createElement(
                 'div',
-                null,
-                React.createElement(
+                { className: 'mdl-cell mdl-cell--4-col' },
+                _react2['default'].createElement(
                     'h1',
                     null,
                     'Welcome'
                 ),
-                React.createElement(
+                _react2['default'].createElement(
                     Link,
                     { to: 'portfolio', title: 'Portfolio' },
                     ' Portfolio '
                 )
-            )
+            ),
+            _react2['default'].createElement('div', { className: 'mdl-cell mdl-cell--4-col' })
         );
     }
 });
 
-module.exports = Welcome;
-
-/* jshint ignore:end */
+exports['default'] = Welcome;
+module.exports = exports['default'];
 
 },{"react":201,"react-router":32}],6:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
-var Main = require('../components/Main');
-var Welcome = require('../components/Welcome');
-var Portfolio = require('../components/Portfolio');
-var Router = require('react-router');
-var DefaultRoute = Router.DefaultRoute;
-var Route = Router.Route;
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
 
-module.exports = React.createElement(
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _componentsMain = require('../components/Main');
+
+var _componentsMain2 = _interopRequireDefault(_componentsMain);
+
+var _componentsWelcome = require('../components/Welcome');
+
+var _componentsWelcome2 = _interopRequireDefault(_componentsWelcome);
+
+var _componentsHome = require('../components/Home');
+
+var _componentsHome2 = _interopRequireDefault(_componentsHome);
+
+var _reactRouter = require('react-router');
+
+var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+var DefaultRoute = _reactRouter2['default'].DefaultRoute;
+var Route = _reactRouter2['default'].Route;
+
+var config = _react2['default'].createElement(
     Route,
-    { name: 'app', path: '/', handler: Main },
-    React.createElement(Route, { name: 'portfolio', path: 'portfolio', handler: Portfolio }),
-    React.createElement(DefaultRoute, { handler: Welcome })
+    { name: 'app', path: '/', handler: _componentsMain2['default'] },
+    _react2['default'].createElement(Route, { name: 'portfolio', path: 'portfolio', handler: _componentsHome2['default'] }),
+    _react2['default'].createElement(DefaultRoute, { handler: _componentsWelcome2['default'] })
 );
 
-},{"../components/Main":2,"../components/Portfolio":3,"../components/Welcome":5,"react":201,"react-router":32}],7:[function(require,module,exports){
+exports['default'] = config;
+module.exports = exports['default'];
+
+},{"../components/Home":2,"../components/Main":3,"../components/Welcome":5,"react":201,"react-router":32}],7:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};

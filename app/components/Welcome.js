@@ -1,22 +1,24 @@
 /**
  * Created by André Fatia on 10-07-2015.
  */
-var React = require('react');
-var Router = require('react-router');
-var Link = Router.Link;
+import React from 'react';
+import Router from 'react-router';
 
-var Welcome = React.createClass({
-    render: () => {
-        'use strict';
+const Link = Router.Link;
+
+const Welcome = React.createClass({
+    render () {
         return (
-            /* jshint ignore:start */
-            <div>
-                <h1>Welcome</h1>
-                <Link to="portfolio" title="Portfolio"> Portfolio </Link>
+            <div className="mdl-grid">
+                <div className="mdl-cell mdl-cell--4-col"></div>
+                <div className="mdl-cell mdl-cell--4-col">
+                    <h1>Welcome</h1>
+                    <Link to="portfolio" title="Portfolio"> Portfolio </Link>
+                </div>
+                <div className="mdl-cell mdl-cell--4-col"></div>
             </div>
-            /* jshint ignore:end */
         );
     }
 });
 
-module.exports = Welcome;
+export default Welcome;
