@@ -13,7 +13,7 @@ const Welcome = React.createClass({
                 <div className="mdl-cell mdl-cell--4-col"></div>
                 <div className="mdl-cell mdl-cell--4-col">
                     <h1>Welcome</h1>
-                    <Link to="portfolio" title="Portfolio"> Portfolio </Link>
+                    <Link to="bio" title="Bio"> Bio </Link>
                 </div>
                 <div className="mdl-cell mdl-cell--4-col"></div>
             </div>

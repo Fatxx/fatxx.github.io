@@ -2968,7 +2968,7 @@ componentHandler.register({
  */
 
 /**
- * Class constructor for Layout MDL component.
+ * Class constructor for layout MDL component.
  * Implements MDL component design pattern defined at:
  * https://github.com/jasonmayes/mdl-component-design-pattern
  * @param {HTMLElement} element The element that will be upgraded.

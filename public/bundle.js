@@ -21,7 +21,7 @@ var renderApp = function renderApp(Root) {
 
 _reactRouter2['default'].run(_configRoutes2['default'], renderApp);
 
-},{"./config/routes":6,"react":201,"react-router":32}],2:[function(require,module,exports){
+},{"./config/routes":4,"react":201,"react-router":32}],2:[function(require,module,exports){
 /**
  * Created by André Fatia on 13-07-2015.
  */
@@ -37,7 +37,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _componentsProfile = require('../components/Profile');
+var _componentsProfile = require('./components/Profile');
 
 var _componentsProfile2 = _interopRequireDefault(_componentsProfile);
 
@@ -45,8 +45,8 @@ var _reactRouter = require('react-router');
 
 var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
-var Home = _react2['default'].createClass({
-    displayName: 'Home',
+var Bio = _react2['default'].createClass({
+    displayName: 'Bio',
 
     getInitialState: function getInitialState() {
         return {
@@ -79,41 +79,10 @@ var Home = _react2['default'].createClass({
     }
 });
 
-exports['default'] = Home;
+exports['default'] = Bio;
 module.exports = exports['default'];
 
-},{"../components/Profile":4,"react":201,"react-router":32}],3:[function(require,module,exports){
-/**
- * Created by André Fatia on 13-07-2015.
- */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-var React = require('react');
-var RouteHandler = require('react-router').RouteHandler;
-
-var Main = React.createClass({
-    displayName: 'Main',
-
-    render: function render() {
-        return React.createElement(
-            'div',
-            { className: 'mdl-layout mdl-js-layout' },
-            React.createElement(
-                'main',
-                { className: 'mdl-layout__content' },
-                React.createElement(RouteHandler, null)
-            )
-        );
-    }
-});
-
-exports['default'] = Main;
-module.exports = exports['default'];
-
-},{"react":201,"react-router":32}],4:[function(require,module,exports){
+},{"./components/Profile":3,"react":201,"react-router":32}],3:[function(require,module,exports){
 /**
  * Created by André Fatia on 13-07-2015.
  */
@@ -180,7 +149,79 @@ module.exports = exports['default'];
 //    }
 //})
 
-},{"react":201}],5:[function(require,module,exports){
+},{"react":201}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _layoutLayout = require('../layout/Layout');
+
+var _layoutLayout2 = _interopRequireDefault(_layoutLayout);
+
+var _welcomeWelcome = require('../welcome/Welcome');
+
+var _welcomeWelcome2 = _interopRequireDefault(_welcomeWelcome);
+
+var _bioBio = require('../bio/Bio');
+
+var _bioBio2 = _interopRequireDefault(_bioBio);
+
+var _reactRouter = require('react-router');
+
+var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+var DefaultRoute = _reactRouter2['default'].DefaultRoute;
+var Route = _reactRouter2['default'].Route;
+
+var config = _react2['default'].createElement(
+    Route,
+    { name: 'app', path: '/', handler: _layoutLayout2['default'] },
+    _react2['default'].createElement(Route, { name: 'bio', path: 'bio', handler: _bioBio2['default'] }),
+    _react2['default'].createElement(DefaultRoute, { handler: _welcomeWelcome2['default'] })
+);
+exports['default'] = config;
+module.exports = exports['default'];
+
+},{"../bio/Bio":2,"../layout/Layout":5,"../welcome/Welcome":6,"react":201,"react-router":32}],5:[function(require,module,exports){
+/**
+ * Created by André Fatia on 13-07-2015.
+ */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+var React = require('react');
+var RouteHandler = require('react-router').RouteHandler;
+
+var Layout = React.createClass({
+    displayName: 'Layout',
+
+    render: function render() {
+        return React.createElement(
+            'div',
+            { className: 'mdl-layout mdl-js-layout' },
+            React.createElement(
+                'main',
+                { className: 'mdl-layout__content' },
+                React.createElement(RouteHandler, null)
+            )
+        );
+    }
+});
+
+exports['default'] = Layout;
+module.exports = exports['default'];
+
+},{"react":201,"react-router":32}],6:[function(require,module,exports){
 /**
  * Created by André Fatia on 10-07-2015.
  */
@@ -220,8 +261,8 @@ var Welcome = _react2['default'].createClass({
                 ),
                 _react2['default'].createElement(
                     Link,
-                    { to: 'portfolio', title: 'Portfolio' },
-                    ' Portfolio '
+                    { to: 'bio', title: 'Bio' },
+                    ' Bio '
                 )
             ),
             _react2['default'].createElement('div', { className: 'mdl-cell mdl-cell--4-col' })
@@ -232,49 +273,7 @@ var Welcome = _react2['default'].createClass({
 exports['default'] = Welcome;
 module.exports = exports['default'];
 
-},{"react":201,"react-router":32}],6:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _componentsMain = require('../components/Main');
-
-var _componentsMain2 = _interopRequireDefault(_componentsMain);
-
-var _componentsWelcome = require('../components/Welcome');
-
-var _componentsWelcome2 = _interopRequireDefault(_componentsWelcome);
-
-var _componentsHome = require('../components/Home');
-
-var _componentsHome2 = _interopRequireDefault(_componentsHome);
-
-var _reactRouter = require('react-router');
-
-var _reactRouter2 = _interopRequireDefault(_reactRouter);
-
-var DefaultRoute = _reactRouter2['default'].DefaultRoute;
-var Route = _reactRouter2['default'].Route;
-
-var config = _react2['default'].createElement(
-    Route,
-    { name: 'app', path: '/', handler: _componentsMain2['default'] },
-    _react2['default'].createElement(Route, { name: 'portfolio', path: 'portfolio', handler: _componentsHome2['default'] }),
-    _react2['default'].createElement(DefaultRoute, { handler: _componentsWelcome2['default'] })
-);
-
-exports['default'] = config;
-module.exports = exports['default'];
-
-},{"../components/Home":2,"../components/Main":3,"../components/Welcome":5,"react":201,"react-router":32}],7:[function(require,module,exports){
+},{"react":201,"react-router":32}],7:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -20062,7 +20061,7 @@ var invariant = require("./invariant");
  *   content.
  * - (Future use case): Wrapping particular flushes of the `ReactWorker` queue
  *   to preserve the `scrollTop` (an automatic scroll aware DOM).
- * - (Future use case): Layout calculations before and after DOM updates.
+ * - (Future use case): layout calculations before and after DOM updates.
  *
  * Transactional plugin API:
  * - A module that has an `initialize` method that returns any precomputation.

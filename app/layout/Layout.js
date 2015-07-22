@@ -4,7 +4,7 @@
 const React = require('react');
 const RouteHandler = require('react-router').RouteHandler;
 
-const Main = React.createClass({
+const Layout = React.createClass({
     render () {
         return (
             <div className="mdl-layout mdl-js-layout">
@@ -16,4 +16,4 @@ const Main = React.createClass({
     }
 });
 
-export default Main;
+export default Layout;

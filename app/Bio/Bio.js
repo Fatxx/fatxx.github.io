@@ -2,10 +2,10 @@
  * Created by André Fatia on 13-07-2015.
  */
 import React from 'react';
-import Profile from '../components/Profile';
+import Profile from './components/Profile';
 import Router from 'react-router';
 
-const Home = React.createClass({
+const Bio = React.createClass({
 
     getInitialState () {
         return {
@@ -32,4 +32,4 @@ const Home = React.createClass({
     }
 });
 
-export default Home;
+export default Bio;
